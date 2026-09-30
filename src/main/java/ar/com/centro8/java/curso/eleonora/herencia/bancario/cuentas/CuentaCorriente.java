@@ -1,5 +1,6 @@
-package ar.com.centro8.java.curso.eleonora.herencia.bancario;
+package ar.com.centro8.java.curso.eleonora.herencia.bancario.cuentas;
 
+import ar.com.centro8.java.curso.eleonora.herencia.bancario.clientes.Cliente;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,10 +18,12 @@ public class CuentaCorriente extends Cuenta {
 
     public void depositarCheque(Cheque cheque){
         float montoCheque = cheque.getMonto();
-        setSaldo (getSaldo() + montoCheque);
+        if (montoCheque >0)
+        setSaldo(getSaldo() + montoCheque);
+        else System.out.println("No se pueden depositar cheques en negativo");
        
-
     }
+    
     @Override 
     public void extraerEfectivo(float monto){ 
     if (monto <= getSaldo()) setSaldo(getSaldo() - monto);  

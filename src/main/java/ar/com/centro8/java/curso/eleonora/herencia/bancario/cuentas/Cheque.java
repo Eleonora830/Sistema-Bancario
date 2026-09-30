@@ -1,4 +1,4 @@
-package ar.com.centro8.java.curso.eleonora.herencia.bancario;
+package ar.com.centro8.java.curso.eleonora.herencia.bancario.cuentas;
 
 import java.time.LocalDate;
 

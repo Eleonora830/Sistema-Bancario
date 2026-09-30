@@ -1,5 +1,6 @@
-package ar.com.centro8.java.curso.eleonora.herencia.bancario;
+package ar.com.centro8.java.curso.eleonora.herencia.bancario.cuentas;
 
+import ar.com.centro8.java.curso.eleonora.herencia.bancario.clientes.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +17,7 @@ public abstract class Cuenta {
 
     public void  depositarEfectivo(float monto){
         if (monto >0) this.saldo +=monto;
-        else System.out.println("No se púede depositar montos en negativo");
+        else System.out.println("No se puede depositar montos en negativo");
 
     }
 

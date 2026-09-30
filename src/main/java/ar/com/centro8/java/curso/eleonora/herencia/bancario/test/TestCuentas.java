@@ -2,24 +2,17 @@ package ar.com.centro8.java.curso.eleonora.herencia.bancario.test;
 
 import java.time.LocalDate;
 
-import ar.com.centro8.java.curso.eleonora.herencia.bancario.CajaAhorro;
-import ar.com.centro8.java.curso.eleonora.herencia.bancario.Cheque;
-import ar.com.centro8.java.curso.eleonora.herencia.bancario.ClienteEmpresa;
-import ar.com.centro8.java.curso.eleonora.herencia.bancario.ClienteIndividual;
-import ar.com.centro8.java.curso.eleonora.herencia.bancario.CuentaConvertibilidad;
-import ar.com.centro8.java.curso.eleonora.herencia.bancario.CuentaCorriente;
+import ar.com.centro8.java.curso.eleonora.herencia.bancario.clientes.ClienteEmpresa;
+import ar.com.centro8.java.curso.eleonora.herencia.bancario.clientes.ClienteIndividual;
+import ar.com.centro8.java.curso.eleonora.herencia.bancario.cuentas.CajaAhorro;
+import ar.com.centro8.java.curso.eleonora.herencia.bancario.cuentas.Cheque;
+import ar.com.centro8.java.curso.eleonora.herencia.bancario.cuentas.CuentaConvertibilidad;
+import ar.com.centro8.java.curso.eleonora.herencia.bancario.cuentas.CuentaCorriente;
 
-public class TestBancario {
+public class TestCuentas {
     public static void main(String[] args) {
-        //Este es el test de Cliente Individual
-        System.out.println("**Test de la clase Cliente Indivivdual**");
-        ClienteIndividual ClienteI1 = new ClienteIndividual("1", "Pedro", "Lopez", "32564879");
-        System.out.println(ClienteI1);
-        
-        //Este es el test de Cliente Empresa
-        System.out.println("**Test de la clase Cliente Empresa**");
-        ClienteEmpresa ClienteE1 = new ClienteEmpresa("2","Casa de computadoras", "30-71234567-8");
-        System.out.println(ClienteE1);
+    ClienteIndividual ClienteI1 = new ClienteIndividual("1", "Pedro", "Lopez", "32564879");
+    ClienteEmpresa ClienteE1 = new ClienteEmpresa("2", "Casa de computadoras", "30-71234567-8");
 
         //Este es el test de la cuenta Caja de Ahorro
         System.out.println("**Test de la clase Caja de Ahorro**");
@@ -39,7 +32,7 @@ public class TestBancario {
         caja1.cobrarInteres();
         System.out.println("al cobrar interes su nuevo saldo:  " + caja1.getSaldo());
 
-        //este es el test de la cuenta Cheque
+        //este es el test de la clase Cheque
         System.out.println("**Test de la clase Cheque**");
         Cheque cheque1 = new Cheque(5000, "Galicia", LocalDate.of(2026, 12, 20));
         System.out.println(cheque1);
@@ -54,6 +47,12 @@ public class TestBancario {
         Corriente1.depositarEfectivo(-1000);
         System.out.println(Corriente1.getSaldo());
 
+        Corriente1.depositarCheque(cheque1);
+        System.out.println(Corriente1.getSaldo());
+        Corriente1.depositarCheque(cheque1);
+        System.out.println(Corriente1.getSaldo());
+
+        cheque1.setMonto(-5000);
         Corriente1.depositarCheque(cheque1);
         System.out.println(Corriente1.getSaldo());
 

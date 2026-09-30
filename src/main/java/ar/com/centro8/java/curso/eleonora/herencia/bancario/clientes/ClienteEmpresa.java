@@ -1,4 +1,4 @@
-package ar.com.centro8.java.curso.eleonora.herencia.bancario;
+package ar.com.centro8.java.curso.eleonora.herencia.bancario.clientes;
 
 import lombok.Getter;
 import lombok.Setter;
