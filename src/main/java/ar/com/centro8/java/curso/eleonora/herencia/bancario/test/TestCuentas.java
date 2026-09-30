@@ -65,7 +65,7 @@ public class TestCuentas {
 
         //Este es el test de cuenta convertibilidad
         System.out.println("**Test Cuenta Convertibilidad**"); 
-        CuentaConvertibilidad convertir1 = new CuentaConvertibilidad("12", ClienteE1, 0, 1000, 0, 0);
+        CuentaConvertibilidad convertir1 = new CuentaConvertibilidad(556586655, ClienteE1, 5000, 2500, 0);
         System.out.println(convertir1);
 
         convertir1.depositarDolares(200);

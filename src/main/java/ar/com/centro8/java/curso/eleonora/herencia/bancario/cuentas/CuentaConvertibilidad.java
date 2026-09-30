@@ -12,16 +12,13 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class CuentaConvertibilidad extends CuentaCorriente {
     private float saldoDolares;
-    private float saldoPesos;
 
 
-public CuentaConvertibilidad(String numeroCuenta, Cliente clienteAsociado, float saldo, float montoGiroDescubierto,
-            float saldoDolares, float saldoPesos) {
+    public CuentaConvertibilidad(String numeroCuenta, Cliente clienteAsociado, float saldo, float montoGiroDescubierto,
+            float saldoDolares) {
         super(numeroCuenta, clienteAsociado, saldo, montoGiroDescubierto);
         this.saldoDolares = saldoDolares;
-        this.saldoPesos = saldoPesos;
     }
-
 
     public void depositarDolares(float monto){
         if (monto >0) saldoDolares += monto;
@@ -31,23 +28,23 @@ public CuentaConvertibilidad(String numeroCuenta, Cliente clienteAsociado, float
 
     public void extraerDolares(float monto){
         if (monto <= saldoDolares) saldoDolares -= monto;
-        else System.out.println("No se puede extraer mas del saldo existente");
+        else System.out.println("No se puede extraer mas del saldo existente ni usar griro descubierto");
     }  
 
     public void convertirPesoADolar(float monto, float tasa) {
-    if (monto > 0 && monto <= saldoPesos && tasa > 0) {
-        saldoPesos -= monto;
+    if (monto > 0 && monto <= getSaldo() && tasa > 0) {
+        setSaldo(getSaldo() - monto);
         saldoDolares = saldoDolares + (monto / tasa);
     } else
-        System.out.println("No se puede realizar la conversion");
+        System.out.println("No se puede realizar esta operacion");
 }
 
     public void convertirDolarAPeso(float monto, float tasa) {
     if (monto > 0 && monto <= saldoDolares && tasa > 0) {
         saldoDolares -= monto;
-        saldoPesos = saldoPesos + monto * tasa;
+        setSaldo(getSaldo() + monto * tasa);
     } else
-        System.out.println("No se puede realizar la conversion");
+        System.out.println("No se puede realizar esta opercion");
 }
   
     
