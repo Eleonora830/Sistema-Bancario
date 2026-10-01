@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.ToString;
 
 @Getter
-@ToString 
-@AllArgsConstructor 
+@ToString
+@AllArgsConstructor
 public abstract class Cliente {
     private String numero;
 

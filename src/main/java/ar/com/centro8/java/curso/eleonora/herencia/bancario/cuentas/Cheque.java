@@ -7,15 +7,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter 
-@Setter 
-@ToString 
-@AllArgsConstructor 
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
 public class Cheque {
     private float monto;
     private String bancoEmisor;
     private LocalDate fechaPago;
-
-   
 
 }
