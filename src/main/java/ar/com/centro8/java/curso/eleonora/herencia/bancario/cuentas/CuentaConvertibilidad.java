@@ -30,7 +30,7 @@ public class CuentaConvertibilidad extends CuentaCorriente {
         if (monto <= saldoDolares)
             saldoDolares -= monto;
         else
-            System.out.println("No se puede extraer mas del saldo existente ni usar griro descubierto");
+            System.out.println("No se puede extraer mas del saldo existente ni usar giro descubierto");
     }
 
     public void convertirPesoADolar(float monto, float tasa) {
@@ -46,7 +46,7 @@ public class CuentaConvertibilidad extends CuentaCorriente {
             saldoDolares -= monto;
             setSaldo(getSaldo() + monto * tasa);
         } else
-            System.out.println("No se puede realizar esta opercion");
+            System.out.println("No se puede realizar esta operacion");
     }
 
 }

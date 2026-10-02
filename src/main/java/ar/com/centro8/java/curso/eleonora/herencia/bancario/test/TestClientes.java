@@ -7,13 +7,13 @@ public class TestClientes {
     public static void main(String[] args) {
         // Este es el test de Cliente Individual
         System.out.println("**Test de la clase Cliente Individual**");
-        ClienteIndividual ClienteI1 = new ClienteIndividual("1", "Pedro", "Lopez", "32564879");
-        System.out.println(ClienteI1);
+        ClienteIndividual clienteI1 = new ClienteIndividual("1", "Pedro", "Lopez", "32564879");
+        System.out.println(clienteI1);
 
         // Este es el test de Cliente Empresa
         System.out.println("**Test de la clase Cliente Empresa**");
-        ClienteEmpresa ClienteE1 = new ClienteEmpresa("2", "Casa de computadoras", "30-71234567-8");
-        System.out.println(ClienteE1);
+        ClienteEmpresa clienteE1 = new ClienteEmpresa("2", "Casa de computadoras", "30-71234567-8");
+        System.out.println(clienteE1);
 
     }
 

@@ -17,16 +17,20 @@ public class CuentaCorriente extends Cuenta {
     }
 
     public void depositarCheque(Cheque cheque) {
-        float montoCheque = cheque.getMonto();
-        if (montoCheque > 0)
-            setSaldo(getSaldo() + montoCheque);
-        else
-            System.out.println("No se pueden depositar cheques en negativo");
+        if (cheque != null) {
+            float montoCheque = cheque.getMonto();
 
+            if (montoCheque > 0)
+                setSaldo(getSaldo() + montoCheque);
+            else
+                System.out.println("No se pueden depositar cheques en negativo");
+        } else
+            System.out.println("El cheque no puede ser nulo");
     }
 
     @Override
     public void extraerEfectivo(float monto) {
+        
         if (monto <= getSaldo())
             setSaldo(getSaldo() - monto);
         else if (monto <= getSaldo() + montoGiroDescubierto) {

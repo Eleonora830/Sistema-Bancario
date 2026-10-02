@@ -11,12 +11,12 @@ import ar.com.centro8.java.curso.eleonora.herencia.bancario.cuentas.CuentaCorrie
 
 public class TestCuentas {
     public static void main(String[] args) {
-        ClienteIndividual ClienteI1 = new ClienteIndividual("1", "Pedro", "Lopez", "32564879");
-        ClienteEmpresa ClienteE1 = new ClienteEmpresa("2", "Casa de computadoras", "30-71234567-8");
+        ClienteIndividual clienteI1 = new ClienteIndividual("1", "Pedro", "Lopez", "32564879");
+        ClienteEmpresa clienteE1 = new ClienteEmpresa("2", "Casa de computadoras", "30-71234567-8");
 
         // Este es el test de la cuenta Caja de Ahorro
         System.out.println("**Test de la clase Caja de Ahorro**");
-        CajaAhorro caja1 = new CajaAhorro("45654578", ClienteI1, 10000, 5);
+        CajaAhorro caja1 = new CajaAhorro("45654578", clienteI1, 0, 5);
         System.out.println(caja1);
 
         caja1.depositarEfectivo(2000);
@@ -39,33 +39,35 @@ public class TestCuentas {
 
         // Este es el test de la cuenta Cuenta Corriente
         System.out.println("**Test de la cuenta Cuenta Corriente**");
-        CuentaCorriente Corriente1 = new CuentaCorriente("556586655", ClienteE1, 5000, 2500);
-        System.out.println(Corriente1);
+        CuentaCorriente corriente1 = new CuentaCorriente("556586655", clienteE1, 0, 2500);
+        System.out.println(corriente1);
 
-        Corriente1.depositarEfectivo(20000);
-        System.out.println(Corriente1.getSaldo());
-        Corriente1.depositarEfectivo(-1000);
-        System.out.println(Corriente1.getSaldo());
+        corriente1.depositarEfectivo(20000);
+        System.out.println(corriente1.getSaldo());
+        corriente1.depositarEfectivo(-1000);
+        System.out.println(corriente1.getSaldo());
 
-        Corriente1.depositarCheque(cheque1);
-        System.out.println(Corriente1.getSaldo());
-        Corriente1.depositarCheque(cheque1);
-        System.out.println(Corriente1.getSaldo());
+        corriente1.depositarCheque(cheque1);
+        System.out.println(corriente1.getSaldo());
+        corriente1.depositarCheque(cheque1);
+        System.out.println(corriente1.getSaldo());
 
         cheque1.setMonto(-5000);
-        Corriente1.depositarCheque(cheque1);
-        System.out.println(Corriente1.getSaldo());
+        corriente1.depositarCheque(cheque1);
+        System.out.println(corriente1.getSaldo());
+        corriente1.depositarCheque(null);
+        System.out.println(corriente1.getSaldo());
 
-        Corriente1.extraerEfectivo(7000);
-        System.out.println(Corriente1.getSaldo());
-        Corriente1.extraerEfectivo(24000);
-        System.out.println(Corriente1.getSaldo());
-        Corriente1.extraerEfectivo(5000);
-        System.out.println(Corriente1.getSaldo());
+        corriente1.extraerEfectivo(7000);
+        System.out.println(corriente1.getSaldo());
+        corriente1.extraerEfectivo(24000);
+        System.out.println(corriente1.getSaldo());
+        corriente1.extraerEfectivo(5000);
+        System.out.println(corriente1.getSaldo());
 
         // Este es el test de cuenta convertibilidad
         System.out.println("**Test Cuenta Convertibilidad**");
-        CuentaConvertibilidad convertir1 = new CuentaConvertibilidad("556586655", ClienteE1, 0, 2500, 0);
+        CuentaConvertibilidad convertir1 = new CuentaConvertibilidad("556586655", clienteE1, 0, 2500, 0);
         System.out.println(convertir1);
 
         convertir1.depositarDolares(200);
@@ -80,7 +82,7 @@ public class TestCuentas {
         convertir1.extraerDolares(250);
         System.out.println("Saldo en dolares:  " + convertir1.getSaldoDolares());
 
-        convertir1.setSaldo(50000);
+        convertir1.depositarEfectivo(50000);
         System.out.println("Su saldo en pesos:  " + convertir1.getSaldo());
 
         convertir1.convertirPesoADolar(15000, 1500);

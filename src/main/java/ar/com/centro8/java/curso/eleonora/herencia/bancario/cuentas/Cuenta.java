@@ -1,18 +1,20 @@
 package ar.com.centro8.java.curso.eleonora.herencia.bancario.cuentas;
 
 import ar.com.centro8.java.curso.eleonora.herencia.bancario.clientes.Cliente;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
-@Setter
 @ToString
 @AllArgsConstructor
 public abstract class Cuenta {
-    private String numeroCuenta;
-    private Cliente clienteAsociado;
+    private final String numeroCuenta;
+    private final Cliente clienteAsociado;
+
+    @Setter(AccessLevel.PROTECTED)
     private float saldo;
 
     public void depositarEfectivo(float monto) {
